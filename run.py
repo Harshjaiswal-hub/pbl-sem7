@@ -24,11 +24,12 @@ def start_server():
     print("🌐 Full-Stack Application is LIVE at:")
     print("   👉 http://127.0.0.1:8000")
     print("   👉 http://localhost:8000")
+    print("   👉 Mobile / Network URL: http://192.168.1.15:8000")
     print("📄 Interactive API Documentation (Swagger):")
     print("   👉 http://localhost:8000/docs")
     print("=" * 65)
     
-    uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, log_level="info")
+    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, log_level="info")
 
 if __name__ == "__main__":
     start_server()
