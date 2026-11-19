@@ -173,13 +173,26 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ----------------- APP HEADER & NAVIGATION -----------------
-col_h1, col_h2 = st.columns([3, 1])
-with col_h1:
-    st.title("✈️ Booking Adventures")
-    st.caption("Autonomous Dynamic Pricing Engine & Smart Airline Platform (PBL Sem 7)")
-with col_h2:
-    st.info(f"👤 **{st.session_state.user_name}**\n📱 {st.session_state.user_mobile}")
+# ----------------- APP HEADER & NAVIGATION (MATCHING LOCALHOST:8000) -----------------
+st.markdown(f"""
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 22px; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(226,232,240,0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-bottom: 22px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="background: #2563EB; color: white; font-weight: 900; font-size: 16px; width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(37,99,235,0.35);">
+            BA
+        </div>
+        <div>
+            <div style="font-size: 19px; font-weight: 900; color: #0F172A; letter-spacing: -0.02em;">Booking<span style="color:#2563EB;">Adventures.</span></div>
+            <div style="font-size: 10px; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">Dynamic Pricing Engine</div>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700; color: #334155;">
+            <div style="width: 26px; height: 26px; border-radius: 50%; background: #2563EB; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">B</div>
+            <span>{st.session_state.user_name} &bull; {st.session_state.user_mobile}</span>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # Tabs for Mobile-Optimized Navigation
 tab_book, tab_chat, tab_radar, tab_bookings, tab_ml = st.tabs([
@@ -192,7 +205,50 @@ tab_book, tab_chat, tab_radar, tab_bookings, tab_ml = st.tabs([
 
 # ================= TAB 1: BOOK FLIGHTS & DYNAMIC PRICING =================
 with tab_book:
-    st.subheader("Search Flights with Dynamic Yield Pricing")
+    # HERO SECTION (EXACT MATCH TO LOCALHOST:8000)
+    st.markdown("""
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; padding: 20px 0 10px 0;">
+        <div style="flex: 1.2; min-width: 300px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: #DBEAFE; color: #1E40AF; padding: 6px 14px; border-radius: 9999px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #2563EB;"></span>
+                <span>Semester 7 Engineering Project (PBL)</span>
+            </div>
+            <h1 style="font-size: 2.8rem; font-weight: 900; color: #0F172A; line-height: 1.15; margin: 0 0 14px 0;">
+                Let's Plan Your<br>Perfect <span style="color: #2563EB; text-decoration: underline; text-decoration-color: #93C5FD;">Journey</span>
+            </h1>
+            <p style="font-size: 15px; color: #475569; line-height: 1.6; max-width: 460px; margin: 0 0 16px 0;">
+                Powered by an algorithmic <strong style="color:#0F172A;">Dynamic Pricing Engine</strong> using Gradient Boosting Machine Learning to guarantee real-time competitive airfares.
+            </p>
+        </div>
+        <div style="flex: 1; min-width: 280px; text-align: center;">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" 
+                 alt="Airplane wing in sky" 
+                 style="width: 100%; max-width: 420px; height: 230px; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.12); border: 4px solid #FFFFFF;">
+        </div>
+    </div>
+
+    <!-- 4 ENGINE TELEMETRY METRIC CARDS -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 15px 0 25px 0;">
+        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 12px 16px; border-radius: 16px; border: 1px solid rgba(226, 232, 240, 0.9); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="font-size: 11px; font-weight: 800; color: #64748B; text-transform: uppercase;">Dynamic Algorithm</div>
+            <div style="font-size: 16px; font-weight: 900; color: #1D4ED8; margin-top: 3px;">Gradient Boosting</div>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 12px 16px; border-radius: 16px; border: 1px solid rgba(226, 232, 240, 0.9); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="font-size: 11px; font-weight: 800; color: #64748B; text-transform: uppercase;">Model Accuracy (R²)</div>
+            <div style="font-size: 16px; font-weight: 900; color: #16A34A; margin-top: 3px;">0.962 (96.2%)</div>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 12px 16px; border-radius: 16px; border: 1px solid rgba(226, 232, 240, 0.9); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="font-size: 11px; font-weight: 800; color: #64748B; text-transform: uppercase;">Latency</div>
+            <div style="font-size: 16px; font-weight: 900; color: #7C3AED; margin-top: 3px;">&lt; 15 ms</div>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 12px 16px; border-radius: 16px; border: 1px solid rgba(226, 232, 240, 0.9); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="font-size: 11px; font-weight: 800; color: #64748B; text-transform: uppercase;">Yield Optimization</div>
+            <div style="font-size: 16px; font-weight: 900; color: #EA580C; margin-top: 3px;">+18.4% Revenue Lift</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("#### 🔍 Search Flights with Dynamic Yield Pricing")
 
     # Search Filters (Responsive 4-column layout)
     c1, c2, c3, c4 = st.columns([1.5, 1.5, 1.5, 1])
