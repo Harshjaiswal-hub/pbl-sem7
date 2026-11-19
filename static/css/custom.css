@@ -1,0 +1,168 @@
+/* Custom styles for Booking Adventures Dynamic Pricing Engine */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+#about, #destinations, #analytics-lab {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Modal transitions */
+.modal-overlay {
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.modal {
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal.hidden {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    pointer-events: none;
+}
+
+/* Fade in animation */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating animation for hero image */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-16px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+.float-animation { 
+    animation: float 6s ease-in-out infinite; 
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Progress bar container */
+.progress-bar-container {
+    width: 100%;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* AI Modal Step */
+.ai-step {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Perforated Ticket styling */
+.ticket {
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.12));
+}
+.ticket-barcode {
+    background: repeating-linear-gradient(to right, 
+        #1f2937 0, #1f2937 2px, 
+        transparent 2px, transparent 4px,
+        #1f2937 4px, #1f2937 7px,
+        transparent 7px, transparent 9px,
+        #1f2937 9px, #1f2937 10px,
+        transparent 10px, transparent 13px
+    );
+    height: 52px;
+}
+
+/* Seat Selection Grid */
+.seat {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    user-select: none;
+}
+.seat.available {
+    background-color: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+.seat.available:hover {
+    background-color: #93c5fd;
+    transform: scale(1.08);
+}
+.seat.booked {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    border: 1px solid #d1d5db;
+}
+.seat.selected {
+    background-color: #2563eb;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
+}
+
+/* Price chart polyline */
+.chart-line {
+    stroke-width: 3.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.5s ease;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Pulse badge */
+.pulse-indicator {
+    animation: pulseGlow 2s infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.04); }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Razorpay Test</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body style="font-family:sans-serif; padding:40px; text-align:center;">
+    <h1>Testing Razorpay Standard Checkout</h1>
+    <button id="pay-btn" style="padding:15px 30px; font-size:18px; background:#2563eb; color:white; border:none; border-radius:8px; cursor:pointer;">
+        Open Official Razorpay Checkout
+    </button>
+    <div id="output" style="margin-top:20px; font-weight:bold;"></div>
+
+    <script>
+        document.getElementById('pay-btn').onclick = function() {
+            var options = {
+                "key": "rzp_test_1DP5mmOlF5G5ag",
+                "amount": "50000",
+                "currency": "INR",
+                "name": "Booking Adventures PBL",
+                "description": "Test Flight Booking",
+                "image": "https://cdn-icons-png.flaticon.com/512/7893/7893979.png",
+                "handler": function (response){
+                    document.getElementById('output').innerText = "SUCCESS! Payment ID: " + response.razorpay_payment_id;
+                    console.log("Payment success:", response);
+                },
+                "prefill": {
+                    "name": "Bittu Jaiswal",
+                    "email": "jaiswalbittu462@gmail.com",
+                    "contact": "9988776655"
+                },
+                "theme": {
+                    "color": "#2563eb"
+                },
+                "modal": {
+                    "ondismiss": function() {
+                        document.getElementById('output').innerText = "Checkout dismissed";
+                    }
+                }
+            };
+            try {
+                var rzp1 = new Razorpay(options);
+                rzp1.on('payment.failed', function (response){
+                    document.getElementById('output').innerText = "Payment failed: " + response.error.description;
+                });
+                rzp1.open();
+                document.getElementById('output').innerText = "Razorpay modal opened!";
+            } catch(e) {
+                document.getElementById('output').innerText = "Error: " + e.message;
+            }
+        };
+    </script>
+</body>
+</html>
