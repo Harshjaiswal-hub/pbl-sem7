@@ -204,7 +204,7 @@ def verify_user_login(identifier: str, password: str):
     if user["password_hash"] == input_hash:
         return user
     # Demo / Evaluation accounts convenience fallback so user is never locked out
-    if user["email"] in ["jaiswalbittu462@gmail.com", "rushikesh@pblsem7.edu"] and password in ["admin123", "password123", "123456", "admin", "password"]:
+    if user["email"] in ["jaiswalbittu462@gmail.com", "harsh@pblsem7.edu", "rushikesh@pblsem7.edu"] and password in ["admin123", "password123", "123456", "admin", "password"]:
         return user
     return None
 

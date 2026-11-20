@@ -1,6 +1,6 @@
 # Booking Adventures: AI Dynamic Pricing Engine & Travel Platform
 **Semester 7 Project-Based Learning (PBL) - Final Year Engineering Project**
-**Authors:** Bittu Jaiswal & Rushikesh
+**Author:** Harsh Jaiswal (Bittu Jaiswal)
 
 ---
 

@@ -805,9 +805,9 @@ with nav_auth:
                 else:
                     st.error("Invalid OTP code.")
     else:
-        new_name = st.text_input("Full Name", value="Rushikesh")
-        new_mobile = st.text_input("Mobile Number", value="+91 9876543210")
-        new_email = st.text_input("Email Address", value="rushikesh@example.com")
+        new_name = st.text_input("Full Name", value="Harsh Jaiswal")
+        new_mobile = st.text_input("Mobile Number", value="+91 7992414122")
+        new_email = st.text_input("Email Address", value="jaiswalbittu462@gmail.com")
         new_pwd = st.text_input("Password", type="password", value="password123")
 
         if st.button("Create Account & Register in SQLite", type="primary"):
